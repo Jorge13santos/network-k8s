@@ -550,10 +550,10 @@ spec:
                   key: cni_network_config
             # Set the hostname based on the k8s node name.
             - name: KUBERNETES_NODE_NAME
-              valueFrom:
+                   valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
-            # CNI MTU Config variable
+              # CNI MTU Config variable
             - name: CNI_MTU
               valueFrom:
                 configMapKeyRef:
@@ -708,11 +708,11 @@ metadata:
     scheduler.alpha.kubernetes.io/critical-pod: ''
 spec:
   # The controller can only have a single active instance.
-  replicas: 1
-  strategy:
-    type: Recreate
-  template:
-    metadata:
+    replicas: 1
+    strategy:
+     type: Recreate
+    template:
+     metadata:
       name: calico-kube-controllers
       namespace: kube-system
       labels:
@@ -744,12 +744,12 @@ spec:
 
 ---
 
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: calico-kube-controllers
-  namespace: kube-system
----
+     apiVersion: v1
+     kind: ServiceAccount
+     metadata:
+      name: calico-kube-controllers
+    namespace: kube-system
+  ---
 # Source: calico/templates/calico-etcd-secrets.yaml
 
 ---
